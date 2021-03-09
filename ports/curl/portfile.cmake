@@ -66,18 +66,6 @@ endif()
 
 if(VCPKG_TARGET_IS_ANDROID)
     set(ADDITIONAL_SCRIPTS -C "${CURRENT_PORT_DIR}/CurlAndroidCrossCompile.cmake")
-    
-    if(VCPKG_LIBRARY_LINKAGE STREQUAL "static")
-        set(EXTRA_ARGS -DOPENSSL_LIBRARY="${CURRENT_INSTALLED_DIR}/lib/libssl.a"
-            -DCRYPT_LIBRARY="${CURRENT_INSTALLED_DIR}/lib/libcrypto.a"
-            -DOPENSSL_INCLUDE="${CURRENT_INSTALLED_DIR}/include"
-            )
-    else()
-        set(EXTRA_ARGS -DOPENSSL_LIBRARY="${CURRENT_INSTALLED_DIR}/lib/libssl.so"
-            -DCRYPT_LIBRARY="${CURRENT_INSTALLED_DIR}/lib/libcrypto.so"
-            -DOPENSSL_INCLUDE="${CURRENT_INSTALLED_DIR}/include"
-            )
-    endif()
 endif()
 
 vcpkg_configure_cmake(
