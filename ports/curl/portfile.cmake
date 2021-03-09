@@ -66,6 +66,7 @@ endif()
 
 if(VCPKG_TARGET_IS_ANDROID)
     set(ADDITIONAL_SCRIPTS -C "${CURRENT_PORT_DIR}/CurlAndroidCrossCompile.cmake")
+    set(EXTRA_ARGS -DOPENSSL_INCLUDE="${CURRENT_INSTALLED_DIR}/include")
 endif()
 
 vcpkg_configure_cmake(
